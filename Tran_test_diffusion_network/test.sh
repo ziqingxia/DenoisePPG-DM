@@ -20,7 +20,7 @@ if [[ ${stage} -le 1 ]]; then
     echo "create ${spec_type} from ${wave_path} to ${spec_path}"
     rm -r ${spec_path} 2>/dev/null
     mkdir -p ${spec_path}
-    python src/cdiffuse/preprocess.py ${wave_path} ${spec_path} --test --voicebank
+    python src/preprocess.py ${wave_path} ${spec_path} --test --voicebank
 fi
 
 if [[ ${stage} -le 2 ]]; then
@@ -32,5 +32,5 @@ if [[ ${stage} -le 2 ]]; then
     rm -r ${enhanced_path} 2>/dev/null
     mkdir -p ${enhanced_path} 
     echo "inference enhanced wav file from ${spec_root} to ${enhanced_path}"
-    python src/cdiffuse/test.py ${output_path}/${model_name}/${ckp}.pt ${test_spec_list} ${voicebank_noisy} -o ${enhanced_path} --se --voicebank
+    python src/test.py ${output_path}/${model_name}/${ckp}.pt ${test_spec_list} ${voicebank_noisy} -o ${enhanced_path} --se --voicebank
 fi
