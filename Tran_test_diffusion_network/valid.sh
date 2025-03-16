@@ -25,5 +25,5 @@ if [[ ${stage} -le 1 ]]; then
     mkdir -p ${enhanced_path} 
     echo "inference enhanced wav file from ${spec_root} to ${enhanced_path}"
     
-    python src/cdiffuse/inference.py  ${output_path}/${model_name}/weights-${ckp}.pt ${test_spec_list} ${voicebank_noisy} -o ${enhanced_path} --se --voicebank
+    python src/inference.py  ${output_path}/${model_name}/weights-${ckp}.pt ${test_spec_list} ${voicebank_noisy} -o ${enhanced_path} --se --voicebank
 fi
